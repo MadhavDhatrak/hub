@@ -396,13 +396,76 @@
       "sourceRepo": "https://github.com/openeverest/plugin-mongodb-explorer",
       "type": "plugin",
       "verified": false
+    },
+    {
+      "artifacts": {
+        "chart": {
+          "channels": {
+            "stable": {
+              "ref": "oci://ghcr.io/openeverest/charts/provider-valkey",
+              "version": "0.1.3"
+            }
+          },
+          "defaultChannel": "stable"
+        }
+      },
+      "capabilities": {
+        "backups": false,
+        "ha": true,
+        "monitoring": false,
+        "sharding": true
+      },
+      "categories": [
+        "database",
+        "valkey"
+      ],
+      "compatibility": {
+        "openeverest": ">=2.0.0"
+      },
+      "description": "Valkey clusters powered by the Valkey Kubernetes Operator.\nSupports replication and sharded cluster topologies. Very early stage.\n",
+      "displayName": "Valkey",
+      "health": "unknown",
+      "homepage": "https://github.com/openeverest/provider-valkey",
+      "icon": "https://raw.githubusercontent.com/openeverest/hub/main/extensions/providers/valkey/valkey_icon.png",
+      "install": {
+        "helm": {
+          "namespace": "everest-system",
+          "releaseName": "provider-valkey"
+        }
+      },
+      "keywords": [
+        "valkey",
+        "key-value",
+        "cache",
+        "redis-compatible"
+      ],
+      "license": "Apache-2.0",
+      "maintainers": [
+        {
+          "email": "cncf-openeverest-maintainers@lists.cncf.io",
+          "github": "openeverest",
+          "name": "OpenEverest Team"
+        }
+      ],
+      "maturity": "alpha",
+      "name": "valkey",
+      "plugin": null,
+      "provider": {
+        "providerName": "valkey",
+        "supportedEngines": [
+          "valkey"
+        ]
+      },
+      "sourceRepo": "https://github.com/openeverest/provider-valkey",
+      "type": "provider",
+      "verified": false
     }
   ],
   "kind": "ExtensionIndex",
   "metadata": {
     "catalogId": "openeverest-official",
-    "generatedAt": "2026-07-06T11:42:39+07:00",
+    "generatedAt": "2026-07-22T21:08:40+03:00",
     "schemaVersion": "v1",
-    "totalExtensions": 6
+    "totalExtensions": 7
   }
 }
