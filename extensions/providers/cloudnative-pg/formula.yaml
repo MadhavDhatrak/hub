@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=../../../schemas/formula-v1.json
+apiVersion: hub.openeverest.io/v1
+kind: Extension
+
+metadata:
+  name: cloudnative-pg
+  type: provider
+  displayName: "CloudNativePG"
+  icon: ./cnpg_icon.svg
+  description: |
+    Highly available PostgreSQL clusters powered by the CloudNativePG
+    operator. Supports replica-set topologies with bootstrap, managed roles,
+    and PostgreSQL tuning.
+  categories:
+    - database
+    - postgresql
+  keywords:
+    - postgresql
+    - postgres
+    - cloudnative-pg
+    - cnpg
+    - ha
+  homepage: https://github.com/adityapimpalkar/provider-cloudnative-pg
+  sourceRepo: https://github.com/adityapimpalkar/provider-cloudnative-pg
+  license: Apache-2.0
+  maturity: alpha
+  maintainers:
+    - name: "Aditya Pimpalkar"
+      github: "adityapimpalkar"
+
+spec:
+  provider:
+    providerName: provider-cloudnative-pg
+    supportedEngines:
+      - postgresql
+
+  compatibility:
+    openeverest: ">=2.0.0"
+
+  capabilities:
+    ha: true
+    backups: true
+    monitoring: false
+    topologies: ["replicaSet"]
+    postgresql.versions: ["14.23", "15.18", "16.14", "17.10", "18.4"]
+
+  artifacts:
+    chart:
+      defaultChannel: stable
+      channels:
+        stable:
+          ref: oci://ghcr.io/adityapimpalkar/charts/provider-cloudnative-pg
+          version: "0.1.1"
+
+  install:
+    helm:
+      releaseName: provider-cloudnative-pg
+      namespace: everest-system
