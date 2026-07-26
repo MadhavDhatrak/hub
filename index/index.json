@@ -2,6 +2,7 @@
   "apiVersion": "hub.openeverest.io/v1",
   "extensions": [
     {
+      "access": "public",
       "artifacts": {
         "chart": {
           "channels": {
@@ -73,6 +74,7 @@
       "verified": false
     },
     {
+      "access": "public",
       "artifacts": {
         "chart": {
           "channels": {
@@ -135,6 +137,63 @@
       "verified": false
     },
     {
+      "access": "gated",
+      "capabilities": {
+        "backups": true,
+        "ha": true,
+        "ha.topologies": [
+          "availabilityGroup"
+        ],
+        "monitoring": true,
+        "restores": true
+      },
+      "categories": [
+        "database",
+        "mssql"
+      ],
+      "compatibility": {
+        "openeverest": ">=2.0.0"
+      },
+      "description": "Microsoft SQL Server on Kubernetes, provided by Solanica. Runs standalone\ninstances and Always On availability groups with automated backups and\nrestores. Commercial, gated extension — contact Solanica for access.\n",
+      "displayName": "Microsoft SQL Server",
+      "gated": {
+        "contactUrl": "https://solanica.io/contact-us?utm_source=hub-mssql",
+        "instructions": "Commercial license required. Contact Solanica to request access, licensing, and private registry credentials.",
+        "provider": "Solanica"
+      },
+      "health": "unknown",
+      "homepage": "https://solanica.io/mssql-on-kubernetes",
+      "icon": "https://raw.githubusercontent.com/openeverest/hub/main/extensions/providers/mssql/mssql_icon.png",
+      "keywords": [
+        "mssql",
+        "sqlserver",
+        "sql-server",
+        "microsoft",
+        "relational"
+      ],
+      "license": "LicenseRef-Solanica-Commercial",
+      "maintainers": [
+        {
+          "email": "sales@solanica.io",
+          "github": "solanicaio",
+          "name": "Solanica"
+        }
+      ],
+      "maturity": "alpha",
+      "name": "mssql",
+      "plugin": null,
+      "provider": {
+        "providerName": "mssql",
+        "supportedEngines": [
+          "mssql"
+        ]
+      },
+      "sourceRepo": "",
+      "type": "provider",
+      "verified": false
+    },
+    {
+      "access": "public",
       "artifacts": {
         "chart": {
           "channels": {
@@ -204,6 +263,7 @@
       "verified": false
     },
     {
+      "access": "public",
       "artifacts": {
         "chart": {
           "channels": {
@@ -273,12 +333,13 @@
       "verified": false
     },
     {
+      "access": "public",
       "artifacts": {
         "chart": {
           "channels": {
             "stable": {
               "ref": "oci://ghcr.io/openeverest/charts/plugin-hub",
-              "version": "0.1.12"
+              "version": "0.1.13"
             }
           },
           "defaultChannel": "stable"
@@ -336,6 +397,7 @@
       "verified": false
     },
     {
+      "access": "public",
       "artifacts": {
         "chart": {
           "channels": {
@@ -398,6 +460,7 @@
       "verified": false
     },
     {
+      "access": "public",
       "artifacts": {
         "chart": {
           "channels": {
@@ -464,8 +527,8 @@
   "kind": "ExtensionIndex",
   "metadata": {
     "catalogId": "openeverest-official",
-    "generatedAt": "2026-07-23T00:00:24+03:00",
+    "generatedAt": "2026-07-26T19:39:03+03:00",
     "schemaVersion": "v1",
-    "totalExtensions": 7
+    "totalExtensions": 8
   }
 }
