@@ -66,8 +66,10 @@ for f in "${formulas[@]}"; do
       "capabilities": (.spec.capabilities // {}),
       "provider":     (.spec.provider // null),
       "plugin":       (.spec.plugin // null),
-      "artifacts":    .spec.artifacts,
-      "install":      .spec.install
+      "access":       (.metadata.access // "public"),
+      "gated":        (.spec.gated // null),
+      "artifacts":    (.spec.artifacts // null),
+      "install":      (.spec.install // null)
     }
   ' "$f" | jq -c \
     --arg base "$HUB_RAW_BASE_URL" \
@@ -77,6 +79,9 @@ for f in "${formulas[@]}"; do
       else .icon = ($base + "/" + $dir + "/" + (.icon | sub("^\\./"; "")))
       end
       | if (.capabilities | length) == 0 then del(.capabilities) else . end
+      | if (.gated == null) then del(.gated) else . end
+      | if (.artifacts == null) then del(.artifacts) else . end
+      | if (.install == null) then del(.install) else . end
     ')
   entries+=("$entry")
 done

@@ -56,6 +56,31 @@
           }
         }
       }
+    },
+    {
+      "if": {
+        "type": "object",
+        "required": ["metadata"],
+        "properties": {
+          "metadata": {
+            "type": "object",
+            "required": ["access"],
+            "properties": { "access": { "const": "gated" } }
+          }
+        }
+      },
+      "then": {
+        "type": "object",
+        "properties": {
+          "spec": { "type": "object", "required": ["gated"] }
+        }
+      },
+      "else": {
+        "type": "object",
+        "properties": {
+          "spec": { "type": "object", "required": ["artifacts", "install"] }
+        }
+      }
     }
   ],
   "$defs": {
@@ -114,6 +139,10 @@
           "enum": ["alpha", "beta", "stable", "deprecated"],
           "description": "Author-declared lifecycle stage. Defaults to 'alpha' when omitted. Independent of channels (release cadence) and of operational health."
         },
+        "access": {
+          "enum": ["public", "gated"],
+          "description": "Distribution mode. Defaults to 'public' when omitted. When 'gated', the catalog lists the extension for discovery but surfaces the spec.gated vendor CTA instead of install instructions."
+        },
         "maintainers": {
           "type": "array",
           "minItems": 1,
@@ -141,7 +170,7 @@
     "spec": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["compatibility", "artifacts", "install"],
+      "required": ["compatibility"],
       "properties": {
         "provider": { "$ref": "#/$defs/specProvider" },
         "plugin": { "$ref": "#/$defs/specPlugin" },
@@ -149,12 +178,36 @@
         "capabilities": { "$ref": "#/$defs/capabilities" },
         "artifacts": { "$ref": "#/$defs/artifacts" },
         "verification": { "$ref": "#/$defs/verification" },
+        "gated": { "$ref": "#/$defs/gated" },
         "install": { "$ref": "#/$defs/install" }
       },
       "oneOf": [
         { "required": ["provider"] },
         { "required": ["plugin"] }
       ]
+    },
+    "gated": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contactUrl"],
+      "description": "Vendor CTA payload. Required when metadata.access == 'gated'.",
+      "properties": {
+        "contactUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL the 'Contact vendor' CTA links to (request access, licensing, credentials)."
+        },
+        "instructions": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "provider": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Display name of the vendor providing the gated extension."
+        }
+      }
     },
     "capabilities": {
       "type": "object",
