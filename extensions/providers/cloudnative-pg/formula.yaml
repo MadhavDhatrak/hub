@@ -5,7 +5,7 @@ kind: Extension
 metadata:
   name: cloudnative-pg
   type: provider
-  displayName: "CloudNativePG"
+  displayName: "PostgreSQL (CNPG)"
   icon: ./cnpg_icon.svg
   description: |
     Highly available PostgreSQL clusters powered by the CloudNativePG
