@@ -1,0 +1,52 @@
+# yaml-language-server: $schema=../../../schemas/formula-v1.json
+apiVersion: hub.openeverest.io/v1
+kind: Extension
+
+metadata:
+  name: percona-postgresql
+  type: provider
+  displayName: "PostgreSQL"
+  icon: ./postgresql_icon.png
+  description: Production-ready PostgreSQL clusters powered by the Percona Operator for PostgreSQL.
+  categories:
+    - database
+    - postgresql
+  keywords:
+    - postgresql
+    - postgres
+    - percona
+    - pgbouncer
+  homepage: https://github.com/openeverest/provider-percona-postgresql
+  sourceRepo: https://github.com/openeverest/provider-percona-postgresql
+  license: Apache-2.0
+  maturity: alpha
+  maintainers:
+    - name: "OpenEverest Team"
+      email: "cncf-openeverest-maintainers@lists.cncf.io"
+      github: "openeverest"
+
+spec:
+  provider:
+    providerName: provider-percona-postgresql
+    supportedEngines:
+      - postgresql
+
+  compatibility:
+    openeverest: ">=2.0.0"
+
+  capabilities:
+    ha: true
+    postgresql.versions: ["14", "15", "16", "17", "18"]
+
+  artifacts:
+    chart:
+      defaultChannel: stable
+      channels:
+        stable:
+          ref: oci://ghcr.io/openeverest/charts/provider-percona-postgresql
+          version: "0.1.0"
+
+  install:
+    helm:
+      releaseName: provider-percona-postgresql
+      namespace: everest-system
