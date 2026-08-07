@@ -210,6 +210,77 @@
       "verified": false
     },
     {
+      "access": "public",
+      "artifacts": {
+        "chart": {
+          "channels": {
+            "stable": {
+              "ref": "oci://ghcr.io/openeverest/charts/provider-mariadb",
+              "version": "0.1.2"
+            }
+          },
+          "defaultChannel": "stable"
+        }
+      },
+      "capabilities": {
+        "mariadb.versions": [
+          "11.4",
+          "11.8"
+        ],
+        "monitoring": true,
+        "scaling.horizontal": true,
+        "scaling.vertical": true,
+        "topologies": [
+          "standalone"
+        ]
+      },
+      "categories": [
+        "database",
+        "mariadb"
+      ],
+      "compatibility": {
+        "kubernetes": ">=1.30 <1.35",
+        "openeverest": ">=2.0.0"
+      },
+      "description": "MariaDB on Kubernetes, backed by the mariadb-operator. Runs standalone\ninstances with provisioning, horizontal and vertical scaling, version\nupgrades, custom my.cnf configuration, and optional Prometheus monitoring.\n",
+      "displayName": "MariaDB",
+      "health": "unknown",
+      "homepage": "https://github.com/openeverest/provider-mariadb",
+      "icon": "https://raw.githubusercontent.com/openeverest/hub/main/extensions/providers/mariadb/mariadb-icon.png",
+      "install": {
+        "helm": {
+          "namespace": "everest-system",
+          "releaseName": "provider-mariadb"
+        }
+      },
+      "keywords": [
+        "mariadb",
+        "mysql",
+        "relational",
+        "sql"
+      ],
+      "license": "Apache-2.0",
+      "maintainers": [
+        {
+          "email": "cncf-openeverest-maintainers@lists.cncf.io",
+          "github": "openeverest",
+          "name": "OpenEverest Team"
+        }
+      ],
+      "maturity": "alpha",
+      "name": "mariadb",
+      "plugin": null,
+      "provider": {
+        "providerName": "mariadb",
+        "supportedEngines": [
+          "mariadb"
+        ]
+      },
+      "sourceRepo": "https://github.com/openeverest/provider-mariadb",
+      "type": "provider",
+      "verified": false
+    },
+    {
       "access": "gated",
       "capabilities": {
         "backups": true,
@@ -668,8 +739,8 @@
   "kind": "ExtensionIndex",
   "metadata": {
     "catalogId": "openeverest-official",
-    "generatedAt": "2026-08-07T18:19:37+08:00",
+    "generatedAt": "2026-08-07T18:26:13+08:00",
     "schemaVersion": "v1",
-    "totalExtensions": 10
+    "totalExtensions": 11
   }
 }
