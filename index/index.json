@@ -79,6 +79,79 @@
         "chart": {
           "channels": {
             "stable": {
+              "ref": "oci://ghcr.io/adityapimpalkar/charts/provider-cloudnative-pg",
+              "version": "0.1.1"
+            }
+          },
+          "defaultChannel": "stable"
+        }
+      },
+      "capabilities": {
+        "backups": true,
+        "ha": true,
+        "monitoring": false,
+        "postgresql.versions": [
+          "14.23",
+          "15.18",
+          "16.14",
+          "17.10",
+          "18.4"
+        ],
+        "topologies": [
+          "replicaSet"
+        ]
+      },
+      "categories": [
+        "database",
+        "postgresql"
+      ],
+      "compatibility": {
+        "openeverest": ">=2.0.0"
+      },
+      "description": "Highly available PostgreSQL clusters powered by the CloudNativePG\noperator. Supports replica-set topologies with bootstrap, managed roles,\nand PostgreSQL tuning.\n",
+      "displayName": "PostgreSQL (CNPG)",
+      "health": "unknown",
+      "homepage": "https://github.com/adityapimpalkar/provider-cloudnative-pg",
+      "icon": "https://raw.githubusercontent.com/openeverest/hub/main/extensions/providers/cloudnative-pg/cnpg_icon.svg",
+      "install": {
+        "helm": {
+          "namespace": "everest-system",
+          "releaseName": "provider-cloudnative-pg"
+        }
+      },
+      "keywords": [
+        "postgresql",
+        "postgres",
+        "cloudnative-pg",
+        "cnpg",
+        "ha"
+      ],
+      "license": "Apache-2.0",
+      "maintainers": [
+        {
+          "github": "adityapimpalkar",
+          "name": "Aditya Pimpalkar"
+        }
+      ],
+      "maturity": "alpha",
+      "name": "cloudnative-pg",
+      "plugin": null,
+      "provider": {
+        "providerName": "provider-cloudnative-pg",
+        "supportedEngines": [
+          "postgresql"
+        ]
+      },
+      "sourceRepo": "https://github.com/adityapimpalkar/provider-cloudnative-pg",
+      "type": "provider",
+      "verified": false
+    },
+    {
+      "access": "public",
+      "artifacts": {
+        "chart": {
+          "channels": {
+            "stable": {
               "ref": "oci://ghcr.io/openeverest/charts/my-plugin",
               "version": "0.1.0"
             }
@@ -527,8 +600,8 @@
   "kind": "ExtensionIndex",
   "metadata": {
     "catalogId": "openeverest-official",
-    "generatedAt": "2026-07-26T19:39:03+03:00",
+    "generatedAt": "2026-08-07T17:31:36+08:00",
     "schemaVersion": "v1",
-    "totalExtensions": 8
+    "totalExtensions": 9
   }
 }
