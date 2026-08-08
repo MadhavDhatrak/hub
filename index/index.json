@@ -246,7 +246,7 @@
       "displayName": "MariaDB",
       "health": "unknown",
       "homepage": "https://github.com/openeverest/provider-mariadb",
-      "icon": "https://raw.githubusercontent.com/openeverest/hub/main/extensions/providers/mariadb/mariadb-icon.png",
+      "icon": "https://raw.githubusercontent.com/openeverest/hub/main/extensions/providers/mariadb/mariadb-icon.svg",
       "install": {
         "helm": {
           "namespace": "everest-system",
@@ -739,7 +739,7 @@
   "kind": "ExtensionIndex",
   "metadata": {
     "catalogId": "openeverest-official",
-    "generatedAt": "2026-08-07T18:26:13+08:00",
+    "generatedAt": "2026-08-08T11:46:37+08:00",
     "schemaVersion": "v1",
     "totalExtensions": 11
   }
