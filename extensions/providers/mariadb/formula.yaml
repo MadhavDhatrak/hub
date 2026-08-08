@@ -6,7 +6,7 @@ metadata:
   name: mariadb
   type: provider
   displayName: "MariaDB"
-  icon: ./mariadb-icon.png
+  icon: ./mariadb-icon.svg
   description: |
     MariaDB on Kubernetes, backed by the mariadb-operator. Runs standalone
     instances with provisioning, horizontal and vertical scaling, version
