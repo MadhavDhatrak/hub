@@ -315,7 +315,7 @@
         "microsoft",
         "relational"
       ],
-      "license": "LicenseRef-Solanica-Commercial",
+      "license": "EULA",
       "maintainers": [
         {
           "email": "sales@solanica.io",
@@ -411,7 +411,7 @@
           "channels": {
             "stable": {
               "ref": "oci://ghcr.io/openeverest/charts/provider-percona-server-mongodb",
-              "version": "0.7.2"
+              "version": "0.2.0"
             }
           },
           "defaultChannel": "stable"
@@ -739,7 +739,7 @@
   "kind": "ExtensionIndex",
   "metadata": {
     "catalogId": "openeverest-official",
-    "generatedAt": "2026-08-08T12:14:23+08:00",
+    "generatedAt": "2026-08-17T23:45:00+03:00",
     "schemaVersion": "v1",
     "totalExtensions": 11
   }
