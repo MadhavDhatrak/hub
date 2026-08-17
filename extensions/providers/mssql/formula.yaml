@@ -21,7 +21,7 @@ metadata:
     - microsoft
     - relational
   homepage: https://solanica.io/mssql-on-kubernetes
-  license: LicenseRef-Solanica-Commercial
+  license: EULA
   maturity: alpha
   access: gated
   maintainers:
