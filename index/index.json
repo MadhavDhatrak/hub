@@ -79,8 +79,85 @@
         "chart": {
           "channels": {
             "stable": {
+              "ref": "oci://ghcr.io/openeverest/charts/provider-cassandra",
+              "version": "0.1.0"
+            }
+          },
+          "defaultChannel": "stable"
+        }
+      },
+      "capabilities": {
+        "backups": true,
+        "backups.scheduled": false,
+        "cassandra.versions": [
+          "4.1",
+          "5.0"
+        ],
+        "ha": true,
+        "monitoring": false,
+        "pitr": false,
+        "restores": true,
+        "scaling.horizontal": true,
+        "scaling.vertical": true,
+        "storage.expansion": true,
+        "topologies": [
+          "singleDatacenter"
+        ]
+      },
+      "categories": [
+        "database",
+        "cassandra"
+      ],
+      "compatibility": {
+        "kubernetes": ">=1.30 <1.35",
+        "openeverest": ">=2.0.0"
+      },
+      "description": "Apache Cassandra on Kubernetes, backed by the k8ssandra-operator.\nEarly-stage (pre-alpha): single-datacenter provisioning, scaling,\nversion upgrades, and on-demand backup/restore via Medusa. Scheduled\nbackups, PITR, and monitoring are not yet supported.\n",
+      "displayName": "Apache Cassandra",
+      "health": "unknown",
+      "homepage": "https://github.com/openeverest/provider-cassandra",
+      "icon": "https://raw.githubusercontent.com/openeverest/hub/main/extensions/providers/cassandra/apache-cassandra-icon.png",
+      "install": {
+        "helm": {
+          "namespace": "everest-system",
+          "releaseName": "provider-cassandra"
+        }
+      },
+      "keywords": [
+        "cassandra",
+        "nosql",
+        "wide-column",
+        "k8ssandra"
+      ],
+      "license": "Apache-2.0",
+      "maintainers": [
+        {
+          "email": "cncf-openeverest-maintainers@lists.cncf.io",
+          "github": "openeverest",
+          "name": "OpenEverest Team"
+        }
+      ],
+      "maturity": "alpha",
+      "name": "cassandra",
+      "plugin": null,
+      "provider": {
+        "providerName": "provider-cassandra",
+        "supportedEngines": [
+          "cassandra"
+        ]
+      },
+      "sourceRepo": "https://github.com/openeverest/provider-cassandra",
+      "type": "provider",
+      "verified": false
+    },
+    {
+      "access": "public",
+      "artifacts": {
+        "chart": {
+          "channels": {
+            "stable": {
               "ref": "oci://ghcr.io/adityapimpalkar/charts/provider-cloudnative-pg",
-              "version": "0.1.1"
+              "version": "0.2.2"
             }
           },
           "defaultChannel": "stable"
@@ -89,7 +166,6 @@
       "capabilities": {
         "backups": true,
         "ha": true,
-        "monitoring": false,
         "postgresql.versions": [
           "14.23",
           "15.18",
@@ -97,6 +173,7 @@
           "17.10",
           "18.4"
         ],
+        "restores": true,
         "topologies": [
           "replicaSet"
         ]
@@ -106,7 +183,7 @@
         "postgresql"
       ],
       "compatibility": {
-        "openeverest": ">=2.0.0"
+        "openeverest": ">=2.0.0-dev.2"
       },
       "description": "Highly available PostgreSQL clusters powered by the CloudNativePG\noperator. Supports replica-set topologies with bootstrap, managed roles,\nand PostgreSQL tuning.\n",
       "displayName": "PostgreSQL (CNPG)",
@@ -739,8 +816,8 @@
   "kind": "ExtensionIndex",
   "metadata": {
     "catalogId": "openeverest-official",
-    "generatedAt": "2026-08-17T23:45:00+03:00",
+    "generatedAt": "2026-08-20T21:33:11+03:00",
     "schemaVersion": "v1",
-    "totalExtensions": 11
+    "totalExtensions": 12
   }
 }
